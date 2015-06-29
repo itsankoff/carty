@@ -40,14 +40,13 @@ Troubleshooting: (Raspbian)
     1.2. Try to connect with other bluetooth device to Raspberry Pi.
     1.3. Start minicom -b 9600 -o -D /dev/ttyAMA0 and send some messages between devices.
     1.4. If you CAN'T recieve messages between 2 sides check jumpers of serial bluetooth.
-        ----------------------------------
-        | bluetooth    | Raspberry       |
-        ----------------------------------
-        |   VCC        | 5V power supply |
-        |   GND        | Ground (0)      |
-        |   TDX        | RXD             |
-        |   RDX        |      TDX        |
-        ----------------------------------
+
+Bluetooth | Raspberry 
+--------- | -----------------
+VCC       | 5V power supply
+GND       | Ground (0)
+TDX       | RXD
+RDX       | TDX
 
     1.5 For more information see here (http://blog.miguelgrinberg.com/post/a-cheap-bluetooth-serial-port-for-your-raspberry-pi)
 
