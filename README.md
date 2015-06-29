@@ -16,7 +16,8 @@ Version 1.0:
 
 
 Installation guide:
-1. clone this repo to your raspberry
+
+1. Clone this repo to your raspberry
 
 2. Bluetooth module installation (Raspbian).
    This step will remove bluetooth console option to free the bluetooth for carty
