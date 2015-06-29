@@ -48,6 +48,6 @@ GND       | Ground (0)
 TDX       | RXD
 RDX       | TDX
 
-    1.5 For more information see here (http://blog.miguelgrinberg.com/post/a-cheap-bluetooth-serial-port-for-your-raspberry-pi)
+  1.5 [For more information see here](http://blog.miguelgrinberg.com/post/a-cheap-bluetooth-serial-port-for-your-raspberry-pi)
 
 
