@@ -35,7 +35,7 @@ Installation guide:
 
 
 Troubleshooting: (Raspbian)
-1. Bluetooth connection problems.
+Bluetooth connection problems.
   1. If you have problem with bluetooth comminucation, install minicom tool (sudo apt-get install minicom).
   2. Try to connect with other bluetooth device to Raspberry Pi.
   3. Start minicom -b 9600 -o -D /dev/ttyAMA0 and send some messages between devices.
