@@ -11,7 +11,8 @@ Version 1.0:
   4. different modes:
     * real time mode - the car is controlled by remote controller in real time
     * programmable mode - the user predifines set of instruction and send it to the car.
-  5. bluetooth communication - remote controller will communicate with the firmware through bluetooth module. It can be replaced with wifi communication.
+  5. bluetooth communication - remote controller will communicate with the
+        firmware through bluetooth module. It can be replaced with wifi communication.
 
 
 Installation guide:
@@ -22,8 +23,15 @@ Installation guide:
     2.1 Backup /boot/cmdline.txt - sudo cp /boot/cmdline.txt /boot/cmdline.txt.backup
     2.2 Go and edit file /boot/cmdline.txt - remove "console=ttyAMA0, 115200 kgboc=ttyAMA0, 115200"
     2.4 Backup /etc/inittab - sudo cp /etc/inittab /etc/inittab.backup
-    2.3 Go and edit file /etc/inittab - comment the line below the line "#Spawn a getty on Raspberry Pi serial line"
+    2.3 Go and edit file /etc/inittab -
+        comment the line below the line "#Spawn a getty on Raspberry Pi serial line"
     2.4 Reboot the Raspberry Pi
+
+  3. Controller
+    3.1. Download Arduino Bluetooth RC Car (Android) (you can use other software
+        for communication but, it will require code modifications)
+    3.2 Start the android application and go to gear and connect to raspberry pi
+        (if you have problems see Throubleshoot section)
 
 
 Troubleshooting: (Raspbian)
@@ -40,4 +48,7 @@ Troubleshooting: (Raspbian)
         |   TDX        | RXD             |
         |   RDX        |      TDX        |
         ----------------------------------
+
+    1.5 For more information see here (http://blog.miguelgrinberg.com/post/a-cheap-bluetooth-serial-port-for-your-raspberry-pi)
+
 
