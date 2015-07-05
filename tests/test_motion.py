@@ -1,6 +1,9 @@
 import unittest
 from time import sleep
-from ..src.motion import *
+import sys
+
+sys.path.append("../src")
+from motion import *
 
 
 class MotionTest(unittest.TestCase):
@@ -21,22 +24,22 @@ class MotionTest(unittest.TestCase):
     def test_turn_left_forward(self):
         self.move.forward()
         self.move.turn_left()
-        sleep(1)
+        sleep(2)
 
     def test_turn_left_backward(self):
         self.move.backward()
         self.move.turn_left()
-        sleep(1)
+        sleep(2)
 
     def test_turn_right_forward(self):
         self.move.forward()
         self.move.turn_right()
-        sleep(1)
+        sleep(2)
 
     def test_turn_right_backward(self):
         self.move.forward()
         self.move.turn_right()
-        sleep(1)
+        sleep(2)
 
     def test_set_acceleration_high(self):
         print("Tes acceleration high")
