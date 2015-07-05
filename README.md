@@ -52,6 +52,8 @@ MOTOR | MOTOR |        |
 RIGHT | LEFT  | pin 22 | pin 13
 VCC   | PWM   | pin 2  | pin 15
 
+  3. sudo pip install rpi.gpio
+
 
 Troubleshooting: (Raspbian) Bluetooth connection problems.
   1. If you have problem with bluetooth comminucation, install minicom tool (sudo apt-get install minicom).
