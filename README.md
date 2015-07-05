@@ -34,6 +34,24 @@ Installation guide:
   2. Start the android application and go to gear and connect to raspberry pi
      (if you have problems see Throubleshoot section)
 
+4. Motors
+  1. You will need bread board and motor driver (In this project I use L293DNE search in google)
+  2. Cable the motor driver as described below: (start from left up to down of motor driver if you
+        watch it with hole on top)
+
+Motor driver  | Raspberry 
+------------- | -----------------
+Left  | Right | LEFT   | RIGHT
+---------------------------------
+PWM   | VCC   | pin 26 | pin 2
+LEFT  | RIGHT | pin 24 | pin 11
+MOTOR | MOTOR |        |
+GND   | GND   | pin 9  | pin 9
+GND   | GND   | pin 9  | pin 9
+MOTOR | MOTOR |        |
+RIGHT | LEFT  | pin 22 | pin 13
+VCC   | PWM   | pin 2  | pin 15
+
 
 Troubleshooting: (Raspbian) Bluetooth connection problems.
   1. If you have problem with bluetooth comminucation, install minicom tool (sudo apt-get install minicom).
