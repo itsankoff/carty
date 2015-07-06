@@ -42,7 +42,6 @@ Installation guide:
 Motor driver   | Raspberry 
 -------------- | -----------------
 Left     Right | Left      Right
--------------- | ------------------
 PWM      VCC   | pin 26    pin 2
 LEFT     RIGHT | pin 24    pin 11
 MOTOR    MOTOR |        
