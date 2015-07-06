@@ -54,7 +54,7 @@ class MotionTest(unittest.TestCase):
 
     def test_get_acceleration(self):
         self.move.set_acceleration(HIGH)
-        self.assertEqual(self.move.get_acceleration, HIGH)
+        self.assertEqual(self.move.get_acceleration(), HIGH)
 
 
 if __name__ == "__main__":
