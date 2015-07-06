@@ -41,16 +41,16 @@ Installation guide:
 
 Motor driver  | Raspberry 
 ------------- | -----------------
-Left  | Right | LEFT   | RIGHT
----------------------------------
-PWM   | VCC   | pin 26 | pin 2
-LEFT  | RIGHT | pin 24 | pin 11
-MOTOR | MOTOR |        |
-GND   | GND   | pin 9  | pin 9
-GND   | GND   | pin 9  | pin 9
-MOTOR | MOTOR |        |
-RIGHT | LEFT  | pin 22 | pin 13
-VCC   | PWM   | pin 2  | pin 15
+Left    Right | LEFT    RIGHT
+------------- | ------------------
+PWM     VCC   | pin 26  pin 2
+LEFT    RIGHT | pin 24  pin 11
+MOTOR   MOTOR |        
+GND     GND   | pin 9   pin 9
+GND     GND   | pin 9   pin 9
+MOTOR   MOTOR |        
+RIGHT   LEFT  | pin 22  pin 13
+VCC     PWM   | pin 2   pin 15
 
   3. sudo pip install rpi.gpio
 
