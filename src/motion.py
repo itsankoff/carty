@@ -71,6 +71,8 @@ class Motion:
             gpio.output(LMOTOR_COUNTER_CLOCKWISE, LOW)
             gpio.output(RMOTOR_COUNTER_CLOCKWISE, LOW)
 
+        self.direction = Direction.no_direction
+
     def turn_left(self):
         if self.direction == Direction.no_direction:
             return
