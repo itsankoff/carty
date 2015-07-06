@@ -5,15 +5,7 @@ from RPi.GPIO import LOW
 from carty_exceptions import BadArgumentError
 from carty_exceptions import CartyError
 from enum import Enum
-
-
-LMOTOR_PWM = 26
-LMOTOR_CLOCKWISE = 22
-LMOTOR_COUNTER_CLOCKWISE = 24
-
-RMOTOR_PWM = 15
-RMOTOR_CLOCKWISE = 13
-RMOTOR_COUNTER_CLOCKWISE = 11
+import configparser
 
 
 class Direction(Enum):
@@ -24,13 +16,25 @@ class Direction(Enum):
 
 class Motion:
     def __init__(self, acceleration=HIGH):
+        config = configparser.ConfigParser()
+        config.read("../carty.ini")
+        motion_config = config["MOTION"]
+
+        self.LMOTOR_PWM = int(motion_config["LMOTOR_PWM"])
+        self.LMOTOR_CLOCKWISE = int(motion_config["LMOTOR_CLOCKWISE"])
+        self.LMOTOR_COUNTER_CLOCKWISE = int(motion_config["LMOTOR_COUNTER_CLOCKWISE"])
+
+        self.RMOTOR_PWM = int(motion_config["RMOTOR_PWM"])
+        self.RMOTOR_CLOCKWISE = int(motion_config["RMOTOR_CLOCKWISE"])
+        self.RMOTOR_COUNTER_CLOCKWISE = int(motion_config["RMOTOR_COUNTER_CLOCKWISE"])
+
         gpio.setmode(gpio.BOARD)
-        gpio.setup(LMOTOR_PWM, OUT)
-        gpio.setup(LMOTOR_CLOCKWISE, OUT)
-        gpio.setup(LMOTOR_COUNTER_CLOCKWISE, OUT)
-        gpio.setup(RMOTOR_PWM, OUT)
-        gpio.setup(RMOTOR_CLOCKWISE, OUT)
-        gpio.setup(RMOTOR_COUNTER_CLOCKWISE, OUT)
+        gpio.setup(self.LMOTOR_PWM, OUT)
+        gpio.setup(self.LMOTOR_CLOCKWISE, OUT)
+        gpio.setup(self.LMOTOR_COUNTER_CLOCKWISE, OUT)
+        gpio.setup(self.RMOTOR_PWM, OUT)
+        gpio.setup(self.RMOTOR_CLOCKWISE, OUT)
+        gpio.setup(self.RMOTOR_COUNTER_CLOCKWISE, OUT)
 
         self.set_acceleration(acceleration)
         self.direction = Direction.no_direction
@@ -47,17 +51,17 @@ class Motion:
             raise BadArgumentError("Be careful mate!")
 
         self.acceleration = acceleration
-        gpio.output(LMOTOR_PWM, acceleration)
-        gpio.output(RMOTOR_PWM, acceleration)
+        gpio.output(self.LMOTOR_PWM, acceleration)
+        gpio.output(self.RMOTOR_PWM, acceleration)
 
     def forward(self):
-        gpio.output(LMOTOR_CLOCKWISE, HIGH)
-        gpio.output(RMOTOR_CLOCKWISE, HIGH)
+        gpio.output(self.LMOTOR_CLOCKWISE, HIGH)
+        gpio.output(self.RMOTOR_CLOCKWISE, HIGH)
         self.direction = Direction.forward
 
     def backward(self):
-        gpio.output(LMOTOR_COUNTER_CLOCKWISE, HIGH)
-        gpio.output(RMOTOR_COUNTER_CLOCKWISE, HIGH)
+        gpio.output(self.LMOTOR_COUNTER_CLOCKWISE, HIGH)
+        gpio.output(self.RMOTOR_COUNTER_CLOCKWISE, HIGH)
         self.direction = Direction.backward
 
     def stop(self):
@@ -65,11 +69,11 @@ class Motion:
             return
 
         if self.direction == Direction.forward:
-            gpio.output(LMOTOR_CLOCKWISE, LOW)
-            gpio.output(RMOTOR_CLOCKWISE, LOW)
+            gpio.output(self.LMOTOR_CLOCKWISE, LOW)
+            gpio.output(self.RMOTOR_CLOCKWISE, LOW)
         else:
-            gpio.output(LMOTOR_COUNTER_CLOCKWISE, LOW)
-            gpio.output(RMOTOR_COUNTER_CLOCKWISE, LOW)
+            gpio.output(self.LMOTOR_COUNTER_CLOCKWISE, LOW)
+            gpio.output(self.RMOTOR_COUNTER_CLOCKWISE, LOW)
 
         self.direction = Direction.no_direction
 
@@ -78,19 +82,19 @@ class Motion:
             return
 
         if self.direction == Direction.forward:
-            gpio.output(LMOTOR_CLOCKWISE, LOW)
-            gpio.output(RMOTOR_CLOCKWISE, HIGH)
+            gpio.output(self.LMOTOR_CLOCKWISE, LOW)
+            gpio.output(self.RMOTOR_CLOCKWISE, HIGH)
         else:
-            gpio.output(LMOTOR_COUNTER_CLOCKWISE, LOW)
-            gpio.output(RMOTOR_COUNTER_CLOCKWISE, HIGH)
+            gpio.output(self.LMOTOR_COUNTER_CLOCKWISE, LOW)
+            gpio.output(self.RMOTOR_COUNTER_CLOCKWISE, HIGH)
 
     def turn_right(self):
         if self.direction == Direction.no_direction:
             return
 
         if self.direction == Direction.forward:
-            gpio.output(RMOTOR_CLOCKWISE, LOW)
-            gpio.output(LMOTOR_CLOCKWISE, HIGH)
+            gpio.output(self.RMOTOR_CLOCKWISE, LOW)
+            gpio.output(self.LMOTOR_CLOCKWISE, HIGH)
         else:
-            gpio.output(RMOTOR_COUNTER_CLOCKWISE, LOW)
-            gpio.output(LMOTOR_COUNTER_CLOCKWISE, HIGH)
+            gpio.output(self.RMOTOR_COUNTER_CLOCKWISE, LOW)
+            gpio.output(self.LMOTOR_COUNTER_CLOCKWISE, HIGH)
