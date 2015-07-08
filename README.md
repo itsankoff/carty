@@ -53,6 +53,11 @@ VCC      PWM   | pin 2     pin 15
 
   3. sudo pip install rpi.gpio
 
+5. PWM lib for raspberry PI
+  1. clone RPIO repo (git clone https://github.com/metachris/RPIO.git)
+  2. cd RPIO
+  3. sudo python3.4 setup.py install
+
 
 Troubleshooting: (Raspbian) Bluetooth connection problems.
   1. If you have problem with bluetooth comminucation, install minicom tool (sudo apt-get install minicom).
