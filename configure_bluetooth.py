@@ -1,4 +1,5 @@
 import serial
+import sys
 
 
 # supported commands for HC-06 bluetooth serial module
@@ -17,8 +18,8 @@ def print_help():
         print("{} - {}".format(command, description))
 
 
-def main():
-    s = serial.Serial("/dev/ttyAMA0", 9600, timeout=1)
+def main(dev):
+    s = serial.Serial(dev, 9600, timeout=1)
     print("connected to: " + s.portstr)
     print("insert commands:")
 
@@ -42,4 +43,9 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    device = "/dev/ttyAMA0"
+
+    if(len(sys.argv) >= 2):
+        device = sys.argv[1]
+
+    main(device)
