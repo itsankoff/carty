@@ -53,7 +53,12 @@ VCC      PWM   | pin 2     pin 15
 
   3. sudo pip install rpi.gpio
 
-5. PWM lib for raspberry PI
+5. You need pyserial for python3
+  1. git clone -b python3 https://github.com/makerbot/pyserial.git
+  2. cd pyserial
+  3. python3.4 setup.py install
+
+6. PWM lib for raspberry PI
   1. clone RPIO repo (git clone https://github.com/metachris/RPIO.git)
   2. cd RPIO
   3. sudo python3.4 setup.py install
