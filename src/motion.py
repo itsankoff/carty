@@ -20,12 +20,12 @@ class Motion:
         config.read("../carty.ini")
         motion_config = config.items("MOTION")
 
-        self.pins = dict(motion_config);
+        self.pins = dict(motion_config)
 
         self.init_hardware()
 
         for name, pin in self.pins.items():
-            gpio.output(int(pin), LOW)        
+            gpio.output(int(pin), LOW)
 
         self.set_acceleration(acceleration)
         self.direction = Direction.no_direction
@@ -35,7 +35,6 @@ class Motion:
 
         for name, pin in self.pins.items():
             gpio.setup(int(pin), OUT)
-    
 
     def get_acceleration(self):
         return self.acceleration
