@@ -23,9 +23,6 @@ class Bluetooth:
         if self.on_open:
             self.on_open()
 
-    def get_status(self):
-        return self.status
-
     def disconnect(self):
         if self.on_close:
             self.on_close()
@@ -33,16 +30,44 @@ class Bluetooth:
         self.serial = None
         self.status = ConnectionStatus.disconnected
 
+    def get_status(self):
+        return self.status
+
+    def connected(self):
+        return self.status == ConnectionStatus.connected
+
     def send(self, message):
-        self.serial.write(message)
+        if self.status != ConnectionStatus.connected:
+            return -1
+
+        return self.serial.write(message.encode(encoding="ascii"))
 
     def recieve(self, size):
+        if self.status != ConnectionStatus.connected:
+            return -1
+
+        if size < 0:
+            return -2
+
+        if size == 0:
+            return ""
+
         return self.serial.read(size).decode(encoding="UTF-8")
 
     # message_size - wait for message_size buffer
     # and then call on_message callback
-    def recieve_blocking(self, message_size):
+    def recieve_blocking(self, size):
+        if self.status != ConnectionStatus.connected:
+            return -1
+
+        if size < 0:
+            return -2
+
+        if size == 0:
+            return ""
+
         while self.status == ConnectionStatus.connected:
-            self.buff = self.recieve(message_size)
-            if len(self.buff) == message_size:
-                self.on_message(self.buff)
+            self.buff = self.recieve(size)
+            if len(self.buff) == size:
+                if self.on_message:
+                    self.on_message(self.buff)
