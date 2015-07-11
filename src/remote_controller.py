@@ -90,6 +90,7 @@ class RemoteController:
             self.motion.forward()
         elif command == "B":
             self.motion.backward()
+            self.lights.enable_back_lights()
         elif command == "L":
             self.motion.turn_left()
         elif command == "R":
@@ -103,11 +104,14 @@ class RemoteController:
         elif command == "H":
             self.motion.backward()
             self.motion.turn_left()
+            self.lights.enable_back_lights()
         elif command == "J":
             self.motion.backward()
             self.motion.turn_right()
+            self.lights.enable_back_lights()
         elif command == "S":
             self.motion.stop()
+            self.lights.disable_back_lights()
         elif command == "W":
             self.lights.enable_front_lights()
         elif command == "w":
