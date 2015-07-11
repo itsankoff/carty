@@ -1,12 +1,13 @@
 import unittest
-import sys
 import types
+import sys
 
 sys.path.append("../src")
 from bluetooth import *
 
 opened = False
 closed = False
+
 
 class BluetoothTest(unittest.TestCase):
     def setUp(self):
@@ -100,7 +101,7 @@ class BluetoothTest(unittest.TestCase):
         buff = self.bluetooth.recieve_blocking(-1)
         self.assertEqual(buff, -2)
 
-# serial communication will block forever on read 
+# serial communication will block forever on read
 #     def test_recieve_blocking_without_callback(self):
 #         self.bluetooth.connect()
 #         self.bluetooth.recieve_blocking(1)
@@ -112,12 +113,13 @@ class BluetoothTest(unittest.TestCase):
 #             global message
 #             message = msg
 #             self.bluetooth.disconnect()
-# 
-#         self.bluetooth.on_message = types.MethodType(on_message, self.bluetooth)
+#
+#         self.bluetooth.on_message =
+#            types.MethodType(on_message, self.bluetooth)
 #         self.bluetooth.connect()
 #         self.bluetooth.send("123")
 #         self.bluetooth.recieve_blocking(3)
-# 
+#
 #         self.assertEqual(message, "123")
 
 
