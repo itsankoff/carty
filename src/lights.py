@@ -11,7 +11,7 @@ class Lights:
         self.FRONT_LIGHTS = int(lights_config["FRONT_LIGHTS"])
         self.BACK_LIGHTS = int(lights_config["BACK_LIGHTS"])
 
-        gpio.setmode(gpio.BOARD)
+        gpio.setmode(gpio.BCM)
         gpio.setup(self.FRONT_LIGHTS, gpio.OUT)
         gpio.setup(self.BACK_LIGHTS, gpio.OUT)
 

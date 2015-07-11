@@ -20,7 +20,7 @@ class RemoteController:
         config = configparser.ConfigParser()
         config.read("../carty.ini")
         self.indication_led = int(config["MAIN"]["INDICATION_LED"])
-        gpio.setmode(gpio.BOARD)
+        gpio.setmode(gpio.BCM)
         gpio.setup(self.indication_led, gpio.OUT)
         gpio.output(self.indication_led, gpio.LOW)
 
