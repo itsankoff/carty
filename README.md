@@ -45,8 +45,8 @@ Left     Right | Left      Right
 PWM      VCC   | pin 26    pin 2
 LEFT     RIGHT | pin 24    pin 11
 MOTOR    MOTOR |        
-GND      GND   | pin 9     pin 9
-GND      GND   | pin 9     pin 9
+GND      GND   | pin 25    pin 25
+GND      GND   | pin 25    pin 25
 MOTOR    MOTOR |        
 RIGHT    LEFT  | pin 22    pin 13
 VCC      PWM   | pin 2     pin 15
@@ -58,7 +58,12 @@ VCC      PWM   | pin 2     pin 15
   2. cd pyserial
   3. python3.4 setup.py install
 
-6. PWM lib for raspberry PI
+6. Install boot script
+  1. edit /etc/rc.local
+  2. /path/to/carty/run.sh
+  3. reboot
+
+7. PWM lib for raspberry PI
   1. clone RPIO repo (git clone https://github.com/metachris/RPIO.git)
   2. cd RPIO
   3. sudo python3.4 setup.py install
