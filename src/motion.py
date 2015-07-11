@@ -31,7 +31,7 @@ class Motion:
         self.direction = Direction.no_direction
 
     def init_hardware(self):
-        gpio.setmode(gpio.BOARD)
+        gpio.setmode(gpio.BCM)
 
         for name, pin in self.pins.items():
             gpio.setup(int(pin), OUT)
@@ -42,10 +42,7 @@ class Motion:
     def set_acceleration(self, acceleration):
         # TODO: Implement acceleration with PWM (RPIO.PWM)
         if (acceleration != HIGH) and (acceleration != LOW):
-            raise BadArgumentError("Not Implemented!")
-
-        if acceleration < 0 or acceleration > 255:
-            raise BadArgumentError("Be careful mate!")
+            raise BadArgumentError("PWM Not Implemented!")
 
         self.acceleration = acceleration
         gpio.output(self.get_channel('lmotor_pwm'), acceleration)
