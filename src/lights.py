@@ -19,6 +19,10 @@ class Lights:
         self.enable_front_lights()
         self.disable_back_lights()
 
+    def __del__(self):
+        self.disable_front_lights()
+        self.disable_back_lights()
+
     def enable_front_lights(self):
         gpio.output(self.FRONT_LIGHTS, gpio.HIGH)
 
