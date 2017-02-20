@@ -1,9 +1,17 @@
-# carty - python project for rc controlled car.
+# carty
+Firmware for rc controlled car.
 
 It is actually a firmware for raspberry pi car
 which uses bluetooth for communication between remote controller and the car.
 
-Version 1.0:
+* [Intro](#intro)
+* [Install](#install)
+* [Troubleshooting](#troubleshooting)
+* [License](#license)
+
+<a name="intro">
+## Intro
+### Version 1
   1. light controller for controlling lights of the car.
   2. move controller for controlling movement of the car.
   3. extension manager for adding sensors.
@@ -13,9 +21,8 @@ Version 1.0:
   5. bluetooth communication - remote controller will communicate with the
         firmware through bluetooth module. It can be replaced with wifi communication.
 
-
-Installation guide:
-
+<a name="install">
+## Install
 1. Clone this repo to your raspberry
 
 2. Bluetooth module installation (Raspbian).
@@ -31,48 +38,50 @@ Installation guide:
   1. Download Arduino Bluetooth RC Car (Android) (you can use other software
         for communication but, it will require code modifications)
   2. Start the android application and go to gear and connect to raspberry pi
-     (if you have problems see Throubleshoot section)
+     (if you have problems see [troubleshoot section](#troubleshooting))
 
 4. Motors
-  1. You will need bread board and motor driver (In this project I use L293DNE search in google)
+  1. You will need breadboard and motor driver (In this project I use L293DNE search in google)
   2. Cable the motor driver as described below: (start from left up to down of motor driver if you
         watch it with hole on top)
 
-Motor driver   | Raspberry 
--------------- | -----------------
-Left     Right | Left      Right
-PWM      VCC   | pin 26    pin 2
-LEFT     RIGHT | pin 24    pin 11
-MOTOR    MOTOR |        
-GND      GND   | pin 25    pin 25
-GND      GND   | pin 25    pin 25
-MOTOR    MOTOR |        
-RIGHT    LEFT  | pin 22    pin 13
-VCC      PWM   | pin 2     pin 15
+        Motor driver    |Raspberry 
+        :--------------:|:-----------------:
+        Left     Right  |Left      Right
+        PWM      VCC    |pin 26    pin 2
+        LEFT     RIGHT  |pin 24    pin 11
+        MOTOR    MOTOR  |       
+        GND      GND    |pin 25    pin 25
+        GND      GND    |pin 25    pin 25
+        MOTOR    MOTOR  |       
+        RIGHT    LEFT   |pin 22    pin 13
+        VCC      PWM    |pin 2     pin 15
 
-  3. sudo pip install rpi.gpio
+5. sudo pip install rpi.gpio
 
-5. You need pyserial for python3
+6. You need pyserial for python3
   1. git clone -b python3 https://github.com/makerbot/pyserial.git
   2. cd pyserial
   3. python3.4 setup.py install
 
-6. Install boot script
+7. Install boot script
   1. edit /etc/rc.local
   2. /path/to/carty/run.sh
   3. reboot
 
-7. PWM lib for raspberry PI
+8. PWM lib for raspberry PI
   1. clone RPIO repo (git clone https://github.com/metachris/RPIO.git)
   2. cd RPIO
   3. sudo python3.4 setup.py install
 
-
-Troubleshooting: (Raspbian) Bluetooth connection problems.
-  1. If you have problem with bluetooth comminucation, install minicom tool (sudo apt-get install minicom).
-  2. Try to connect with other bluetooth device to Raspberry Pi.
-  3. Start minicom -b 9600 -o -D /dev/ttyAMA0 and send some messages between devices.
-  4. If you CAN'T recieve messages between 2 sides check jumpers of serial bluetooth.
+<a name="troubleshooting">
+## Troubleshooting
+### (Raspbian) Bluetooth connection problems.
+If you have problem with bluetooth comminucation:
+1. install minicom tool (sudo apt-get install minicom).
+2. Try to connect with other bluetooth device to Raspberry Pi.
+3. Start minicom -b 9600 -o -D /dev/ttyAMA0 and send some messages between devices.
+4. If you CAN'T recieve messages between 2 sides check jumpers of serial bluetooth.
 
 Bluetooth | Raspberry 
 --------- | -----------------
@@ -81,6 +90,9 @@ GND       | Ground (0)
 TDX       | RXD
 RDX       | TDX
 
-  1.5 [For more information see here](http://blog.miguelgrinberg.com/post/a-cheap-bluetooth-serial-port-for-your-raspberry-pi)
+<a name="license">
+## License
+[GPL](https://github.com/itsankoff/carty/blob/master/LICENSE)
 
-
+## References:
+[For more information see here](http://blog.miguelgrinberg.com/post/a-cheap-bluetooth-serial-port-for-your-raspberry-pi)
