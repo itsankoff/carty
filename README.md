@@ -60,7 +60,7 @@ Firmware for rc controlled raspberry-pi car.
         RIGHT    LEFT   |pin 22    pin 13
         VCC      PWM    |pin 2     pin 15
 
-5. Install raspberry-pi `grio` lib
+5. Install raspberry-pi `gpio` lib
     * `sudo pip install rpi.gpio`
 
 6. You need pyserial for python3
