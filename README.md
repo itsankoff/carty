@@ -83,11 +83,12 @@ Firmware for rc controlled raspberry-pi car.
 ## Troubleshooting
 
 ### (Raspbian) Bluetooth connection problems.
-If you have problem with bluetooth comminucation:
-1. install minicom tool (sudo apt-get install minicom).
-2. Try to connect with other bluetooth device to Raspberry Pi.
-3. Start minicom -b 9600 -o -D /dev/ttyAMA0 and send some messages between devices.
-4. If you __can't__ receive messages between 2 sides check jumpers of serial bluetooth.
+If you have problem with bluetooth communication:
+1. Install minicom tool `sudo apt-get install minicom`
+2. Try to connect with another bluetooth device to Raspberry Pi.
+3. `minicom -b 9600 -o -D /dev/ttyAMA0`
+4. Try to send some messages between the raspberry-pi and the other device.
+5. If you __can't__ rx/tx messages from/to one of the sides check the jumpers on the serial bluetooth.
 
 Bluetooth | Raspberry 
 --------- | -----------------
