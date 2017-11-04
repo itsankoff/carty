@@ -14,19 +14,19 @@ Firmware for rc controlled raspberry-pi car.
 ## Introduction
 
 ### Version 1
-  1. light controller for controlling lights of the car.
-  2. move controller for controlling movement of the car.
-  3. extension manager for adding sensors.
-  4. different modes:
+1. Light controller for controlling lights of the car
+2. Move controller for controlling movement of the car
+3. Extension manager for adding sensors
+4. Different modes:
     * real time mode - the car is controlled by remote controller in real time
-    * programmable mode - the user predefines set of instruction and send it to the car.
-  5. bluetooth communication - remote controller will communicate with the
-        firmware through bluetooth module. It can be replaced with wifi communication.
+    * programmable mode - the user predefines set of instruction and send it to the car
+5. Bluetooth communication - remote controller will communicate with the
+    firmware through __bluetooth__ module. It can be replaced with __wifi__ communication
 
 <a name="install">
 
 ## Install
-1. Clone this repo to your raspberry
+1. Clone the repo to your raspberry
 
 2. Bluetooth module installation (Raspbian). This step will remove bluetooth console option
     to free the bluetooth for the carty controller.
@@ -40,7 +40,7 @@ Firmware for rc controlled raspberry-pi car.
 3. Controller
     * Download Arduino Bluetooth RC Car (Android). You can use other software for communication but most probably,
         it will require code modifications)
-    * Start the android application and go to gear button t connect to raspberry-pi.
+    * Start the android application and go to gear button t connect to raspberry-pi
         If you have any problems see [troubleshoot section](#troubleshooting))
 
 4. Motors
